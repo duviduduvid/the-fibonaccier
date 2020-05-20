@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
-import Fibonaccier from './Fibonaccier';
-import './App.css';
 
-import { getCurrentIndex } from './storage-service';
+import { Fibonaccier } from '../index';
+import { getCurrentIndex } from '../../services';
+
+import './App.css';
 
 function App() {
     return (

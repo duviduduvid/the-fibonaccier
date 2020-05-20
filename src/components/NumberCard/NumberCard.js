@@ -1,5 +1,6 @@
 import React from 'react';
 import TextTransition, { presets } from 'react-text-transition';
+
 import './NumberCard.css';
 
 const NumberCard = ({ number, direction }) => {

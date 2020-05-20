@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
-import NumberCard from './NumberCard';
 
-import { getNthFibonacci, isBigIntSupported } from './logic';
-import { saveCurrentIndex } from './storage-service';
+import { NumberCard } from '../index';
+import {
+    getNthFibonacci,
+    isBigIntSupported,
+    saveCurrentIndex,
+} from '../../services';
 
 import './Fibonaccier.css';
 

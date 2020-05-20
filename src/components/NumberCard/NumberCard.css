@@ -5,3 +5,23 @@
     padding: 2em 4em;
     margin: 2em;
 }
+
+.firstFib {
+    color: gray;
+    animation-duration: 0.5s;
+    animation-name: blink;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

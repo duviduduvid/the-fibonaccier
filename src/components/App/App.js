@@ -9,12 +9,12 @@ import './App.css';
 function App() {
     return (
         <Router>
+            <Redirect exact from="/" to={`/${getCurrentIndex()}`} />
             <Route path="/:fib">
                 <div className="App">
                     <Fibonaccier />
                 </div>
             </Route>
-            <Redirect exact from="/" to={`/${getCurrentIndex()}`} />
         </Router>
     );
 }

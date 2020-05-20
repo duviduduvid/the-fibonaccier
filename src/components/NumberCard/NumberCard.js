@@ -3,7 +3,7 @@ import TextTransition, { presets } from 'react-text-transition';
 
 import './NumberCard.css';
 
-const NumberCard = ({ number, direction }) => {
+const NumberCard = ({ number, direction, isFirst }) => {
     return (
         <div className="number-card">
             <h2>
@@ -12,6 +12,7 @@ const NumberCard = ({ number, direction }) => {
                     springConfig={presets.gentle}
                     direction={direction}
                     noOverflow
+                    className={isFirst ? 'firstFib' : ''}
                 />
             </h2>
         </div>

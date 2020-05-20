@@ -16,15 +16,28 @@ const Fibonaccier = () => {
     const [currFib, setCurrFib] = useState();
     const [result, setResult] = useState();
     const [direction, setDirection] = useState();
+    const [warning, setWarning] = useState();
 
     useEffect(() => {
+        setWarning('');
         const newFib = Number(fib);
-        setCurrFib((prevFib) => {
-            newFib > prevFib ? setDirection('up') : setDirection('down');
-            return newFib;
-        });
-        setResult(getNthFibonacci(newFib));
-        saveCurrentIndex(newFib);
+        if (newFib >= 222) {
+            setWarning(
+                'These values of Fibonnaci are too big for us to fathom, and to display properly. Sorry...'
+            );
+        } else {
+            if (!isBigIntSupported() && newFib > 78) {
+                setWarning(
+                    'Warning!! Current value is greater than the largest supported integer by your browser, thus it is inaccurate'
+                );
+            }
+            setCurrFib((prevFib) => {
+                newFib > prevFib ? setDirection('up') : setDirection('down');
+                return newFib;
+            });
+            setResult(getNthFibonacci(newFib));
+            saveCurrentIndex(newFib);
+        }
     }, [fib]);
 
     const handleJumpToClick = () => {
@@ -44,7 +57,11 @@ const Fibonaccier = () => {
 
             <div className="inner-container">
                 <div className="card">
-                    <NumberCard number={result} direction={direction} />
+                    <NumberCard
+                        number={result}
+                        direction={direction}
+                        isFirst={currFib === 1}
+                    />
                 </div>
 
                 <div className="previous-link">
@@ -57,17 +74,15 @@ const Fibonaccier = () => {
                 </div>
 
                 <div className="next-link">
-                    <Link to={`/${currFib + 1}`}>Next{' >>'}</Link>
+                    <Link
+                        to={`/${currFib + 1}`}
+                        className={Number(fib) >= 222 ? 'disabled-link' : ''}
+                    >
+                        Next{' >>'}
+                    </Link>
                 </div>
             </div>
-            {!isBigIntSupported() && currFib > 78 ? (
-                <p className="warning">
-                    Warning!! Current value is greater than the largest
-                    supported integer, thus it is inaccurate
-                </p>
-            ) : (
-                ''
-            )}
+            {warning && <p className="warning">{warning}</p>}
             <div className="jump-to-link" onClick={handleJumpToClick}>
                 Jump to...
             </div>

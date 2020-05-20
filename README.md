@@ -1,7 +1,7 @@
 This is a simple React app that displays the Fibonacci series numbers. 
 It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Install
+## Install and use
 * git clone
 * npm install
 * npm start

@@ -1,0 +1,7 @@
+.number-card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 5px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    padding: 2em 4em;
+    margin: 2em;
+}

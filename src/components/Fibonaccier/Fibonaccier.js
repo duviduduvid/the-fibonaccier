@@ -62,7 +62,7 @@ const Fibonaccier = () => {
             </div>
             {!isBigIntSupported() && currFib > 78 ? (
                 <p className="warning">
-                    Warning!! Currect value is greater than the largest
+                    Warning!! Current value is greater than the largest
                     supported integer, thus it is inaccurate
                 </p>
             ) : (
